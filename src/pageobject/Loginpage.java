@@ -43,6 +43,7 @@ public class Loginpage extends Abstractcomponent {
         userEmail.sendKeys(email);
 		passwordEle.sendKeys(password);
 		submit.click();
+		System.out.println("Login successfully");
 
 	}
 

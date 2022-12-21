@@ -47,7 +47,7 @@ public class Checkoutpage extends Abstractcomponent {
 
 		searchcountry.click();
 		searchcountry.sendKeys(Place);
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		country.click();
 		Thread.sleep(8000);
 		placeorder.click();

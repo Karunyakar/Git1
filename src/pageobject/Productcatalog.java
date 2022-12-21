@@ -27,12 +27,10 @@ public class Productcatalog extends Abstractcomponent {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public void addItems() throws IOException, InterruptedException {
 
 		Properties pro = new Properties();
-		FileInputStream files = new FileInputStream(
-				"C:\\Users\\r.karunya\\eclipse-workspace\\Demo2\\ProperityFile");
+		FileInputStream files = new FileInputStream("C:\\Users\\r.karunya\\eclipse-workspace\\Demo2\\ProperityFile");
 		pro.load(files);
 		Thread.sleep(3000);
 		String[] itemsNeeded = pro.getProperty("Products").toString().split("#");
@@ -51,8 +49,7 @@ public class Productcatalog extends Abstractcomponent {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("//div[@class='container']//div[@class='row']//h5")));
-			
-			
+
 			List<WebElement> products = driver
 					.findElements(By.xpath("//div[@class='container']//div[@class='row']//h5"));
 
@@ -61,7 +58,7 @@ public class Productcatalog extends Abstractcomponent {
 				String formattedName = name[0].trim();
 				List itemsNeedlist = Arrays.asList(itemsNeeded);
 				if (itemsNeedlist.contains(formattedName)) {
-					System.out.println(formattedName +"products is added successfully");
+					System.out.println(formattedName + "products is added successfully");
 
 					j++;
 
@@ -70,14 +67,10 @@ public class Productcatalog extends Abstractcomponent {
 					wait.until(ExpectedConditions
 							.invisibilityOfAllElements(driver.findElements(By.cssSelector(".ng-animating"))));
 
-					if (j == itemsNeeded.length) {
-					break;
-					}
-
 				}
 
 			}
 		}
-		
+
 	}
 }
